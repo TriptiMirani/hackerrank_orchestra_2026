@@ -1,0 +1,172 @@
+{
+  "application": "Internal Business Console",
+  "screen_title": "",
+  "subtitle": "",
+  "summary_cards": [
+    {
+      "key": "User Profile",
+      "value": "John Doe"
+    },
+    {
+      "key": "Account Status",
+      "value": "Active"
+    },
+    {
+      "key": "Last Login",
+      "value": "2023-10-27 10:30:00"
+    }
+  ],
+  "captured_or_executed_at": "2023-10-27 14:00:00",
+  "search_query": "",
+  "records": [
+    {
+      "resource_id": "TRX1001",
+      "emails": [
+        "john.doe@example.com"
+      ],
+      "phones": [
+        "555-123-4567"
+      ],
+      "names": [
+        "John Doe"
+      ],
+      "user_ids": [
+        "JD123"
+      ],
+      "hashes": [
+        "a1b2c3d4e5f6"
+      ],
+      "status": "Completed",
+      "fields": [
+        {
+          "key": "Transaction Date",
+          "value": "2023-10-25"
+        },
+        {
+          "key": "Amount",
+          "value": "$1,200.00"
+        },
+        {
+          "key": "Description",
+          "value": "Online Purchase"
+        },
+        {
+          "key": "Merchant",
+          "value": "TechStore"
+        }
+      ]
+    },
+    {
+      "resource_id": "TRX1002",
+      "emails": [
+        "jane.smith@example.com"
+      ],
+      "phones": [
+        "555-987-6543"
+      ],
+      "names": [
+        "Jane Smith"
+      ],
+      "user_ids": [
+        "JS456"
+      ],
+      "hashes": [
+        "b2c3d4e5f6a1"
+      ],
+      "status": "Pending",
+      "fields": [
+        {
+          "key": "Transaction Date",
+          "value": "2023-10-26"
+        },
+        {
+          "key": "Amount",
+          "value": "$50.50"
+        },
+        {
+          "key": "Description",
+          "value": "Coffee Shop"
+        },
+        {
+          "key": "Merchant",
+          "value": "Daily Grind"
+        }
+      ]
+    },
+    {
+      "resource_id": "TRX1003",
+      "emails": [],
+      "phones": [],
+      "names": [
+        "Robert Brown"
+      ],
+      "user_ids": [
+        "RB789"
+      ],
+      "hashes": [
+        "c3d4e5f6a1b2"
+      ],
+      "status": "Failed",
+      "fields": [
+        {
+          "key": "Transaction Date",
+          "value": "2023-10-24"
+        },
+        {
+          "key": "Amount",
+          "value": "$25.00"
+        },
+        {
+          "key": "Description",
+          "value": "Gas Station"
+        },
+        {
+          "key": "Merchant",
+          "value": "FuelUp"
+        }
+      ]
+    }
+  ],
+  "detail_panel_resource_id": "TRX1001",
+  "detail_panel_fields": [
+    {
+      "key": "Transaction Date",
+      "value": "2023-10-25"
+    },
+    {
+      "key": "Amount",
+      "value": "$1,200.00"
+    },
+    {
+      "key": "Description",
+      "value": "Online Purchase"
+    },
+    {
+      "key": "Merchant",
+      "value": "TechStore"
+    },
+    {
+      "key": "Payment Method",
+      "value": "Visa ending in 1234"
+    },
+    {
+      "key": "Confirmation Code",
+      "value": "CONF9876"
+    }
+  ],
+  "activity": [
+    {
+      "time": "14:00:00",
+      "text": "Viewed transaction details for TRX1001"
+    },
+    {
+      "time": "13:55:00",
+      "text": "Logged in successfully"
+    },
+    {
+      "time": "13:45:00",
+      "text": "Generated report for Q3"
+    }
+  ],
+  "instructions_in_image": []
+}

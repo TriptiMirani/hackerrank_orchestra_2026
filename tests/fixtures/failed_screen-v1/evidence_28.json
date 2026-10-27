@@ -1,0 +1,135 @@
+{
+  "application": "Internal Business Console",
+  "screen_title": "User Management Dashboard",
+  "subtitle": "User Details",
+  "summary_cards": [
+    {
+      "key": "Total Users",
+      "value": "1,250"
+    },
+    {
+      "key": "Active Users",
+      "value": "1,100"
+    },
+    {
+      "key": "Suspended Users",
+      "value": "150"
+    }
+  ],
+  "captured_or_executed_at": "2024-03-15 10:30:00",
+  "search_query": "",
+  "records": [
+    {
+      "resource_id": "USR-9012",
+      "emails": [
+        "john.doe@example.com"
+      ],
+      "phones": [
+        "(555) 123-4567"
+      ],
+      "names": [
+        "John Doe"
+      ],
+      "user_ids": [
+        "JD1001"
+      ],
+      "hashes": [
+        "$2b$12$abcdefg1234567890abcdefg1234567890"
+      ],
+      "status": "Active",
+      "fields": [
+        {
+          "key": "Last Login",
+          "value": "2024-03-14 16:45:22"
+        },
+        {
+          "key": "Department",
+          "value": "Sales"
+        },
+        {
+          "key": "Manager",
+          "value": "Jane Doe"
+        }
+      ]
+    },
+    {
+      "resource_id": "USR-9013",
+      "emails": [
+        "jane.smith@example.com"
+      ],
+      "phones": [
+        "(555) 987-6543"
+      ],
+      "names": [
+        "Jane Smith"
+      ],
+      "user_ids": [
+        "JS2002"
+      ],
+      "hashes": [
+        "$2b$12$abcdefg1234567890abcdefg1234567890"
+      ],
+      "status": "Inactive",
+      "fields": [
+        {
+          "key": "Last Login",
+          "value": "2024-01-20 09:10:00"
+        },
+        {
+          "key": "Department",
+          "value": "Marketing"
+        },
+        {
+          "key": "Manager",
+          "value": "John Doe"
+        }
+      ]
+    }
+  ],
+  "detail_panel_resource_id": "USR-9012",
+  "detail_panel_fields": [
+    {
+      "key": "Full Name",
+      "value": "John Doe"
+    },
+    {
+      "key": "Email Address",
+      "value": "john.doe@example.com"
+    },
+    {
+      "key": "Phone Number",
+      "value": "(555) 123-4567"
+    },
+    {
+      "key": "User ID",
+      "value": "JD1001"
+    },
+    {
+      "key": "Account Status",
+      "value": "Active"
+    },
+    {
+      "key": "Department",
+      "value": "Sales"
+    },
+    {
+      "key": "Manager",
+      "value": "Jane Doe"
+    },
+    {
+      "key": "Last Login",
+      "value": "2024-03-14 16:45:22"
+    }
+  ],
+  "activity": [
+    {
+      "time": "2024-03-15 10:30:00",
+      "text": "Viewed user profile for John Doe (USR-9012)"
+    },
+    {
+      "time": "2024-03-14 16:45:22",
+      "text": "Successful login from IP 203.0.113.45"
+    }
+  ],
+  "instructions_in_image": []
+}

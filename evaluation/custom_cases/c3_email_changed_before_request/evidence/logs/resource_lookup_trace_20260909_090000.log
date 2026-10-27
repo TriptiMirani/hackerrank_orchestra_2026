@@ -1,0 +1,6 @@
+2026-09-09T09:00:00Z level=DEBUG service=account_service trace_id=rb-1 event=profile_lookup_started resource_id=account_9003 lookup_key=mei.chen.new@example.org
+2026-09-09T09:00:01Z level=INFO service=account_service trace_id=rb-1 event=profile_lookup_completed resource_id=account_9003 rows=0 http_status=404
+2026-09-09T09:05:00Z level=DEBUG service=analytics_platform trace_id=rb-2 event=analytics_profile_read_started resource_id=analytics_9003 lookup_key=mei.c@example.org
+2026-09-09T09:05:01Z level=INFO service=analytics_platform trace_id=rb-2 event=analytics_profile_read_completed resource_id=analytics_9003 customer_reference=null email=mei.c@example.org phone=null email_hash=null audience_cohort=home_lifestyle
+2026-09-09T09:10:00Z level=DEBUG service=support_platform trace_id=rb-3 event=support_ticket_read_started resource_id=support_9003 lookup_key=user_9003
+2026-09-09T09:10:01Z level=INFO service=support_platform trace_id=rb-3 event=support_ticket_read_completed resource_id=support_9003 customer_reference=user_9003 requester_name=null requester_email=null requester_phone=null

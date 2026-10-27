@@ -1,0 +1,80 @@
+{
+  "_note": "Ground truth for scripts/accuracy_check.py. Drafted by Claude Code by viewing each PNG; to be spot-checked by the developer. Every value is copied exactly as it appears on screen. A value counts as found if it appears anywhere in the extraction (phones compared by digits only).",
+  "evidence_04": {
+    "names": ["Haruka Sato"],
+    "emails": ["haruka.s1838@zoho.com"],
+    "phones": ["+81 90 7610 2507"],
+    "user_ids": ["user_11"],
+    "resource_ids": ["account_5762", "support_9538", "CS-8538", "ORD-20265762", "ORD-20265518"]
+  },
+  "evidence_09": {
+    "names": ["Gabriel Silva", "Aditi Jain"],
+    "emails": ["g.silva76@gmail.com", "g.silva76.jr@gmail.com"],
+    "phones": [],
+    "user_ids": ["user_13", "user_9842"],
+    "resource_ids": ["search_428", "search_1874", "customer_directory_v3"]
+  },
+  "evidence_14": {
+    "names": [],
+    "emails": ["jain.aditi@gmail.com", "lucia-torres@gmail.com"],
+    "phones": [],
+    "user_ids": [],
+    "resource_ids": ["data_flow_1121", "data_flow_9846", "customer_analytics_warehouse"]
+  },
+  "evidence_19": {
+    "names": ["Omar Darwish"],
+    "emails": ["darwish.omar@icloud.com"],
+    "phones": [],
+    "user_ids": ["user_20"],
+    "resource_ids": ["analytics_7438"]
+  },
+  "evidence_23": {
+    "names": [],
+    "emails": ["marcus.lee@northstar.shop", "ingrid.dahl@outlook.com", "sara.kim@northstar.shop", "daniel.park@northstar.shop"],
+    "phones": [],
+    "user_ids": [],
+    "resource_ids": ["export_1261", "export_1260", "export_1259", "export_1258"]
+  },
+  "evidence_28": {
+    "names": ["Kofi Agyeman", "Maya Chen"],
+    "emails": ["kagyeman8947@fastmail.com"],
+    "phones": [],
+    "user_ids": [],
+    "resource_ids": ["support_1034", "CS-5034", "ORD-20265034"]
+  },
+  "evidence_32": {
+    "names": [],
+    "emails": ["bluepeakco@outlook.com", "miller.logistics@company.com", "areed1433@gmail.com", "summit-retail@company.com"],
+    "phones": [],
+    "user_ids": [],
+    "resource_ids": ["backup_9291", "backup_9288", "backup_9287", "backup_9286", "backup_9281"]
+  },
+  "evidence_37": {
+    "names": [],
+    "emails": [],
+    "phones": [],
+    "user_ids": ["user_03"],
+    "resource_ids": ["audit_record_001", "audit_record_002", "audit_record_003", "audit_record_004", "audit_record_005", "audit_record_006"]
+  },
+  "evidence_42": {
+    "names": [],
+    "emails": [],
+    "phones": [],
+    "user_ids": ["user_17"],
+    "resource_ids": ["ORD-20263245", "CS-3245", "CS-3378", "FIN-7742"]
+  },
+  "evidence_46": {
+    "names": [],
+    "emails": [],
+    "phones": [],
+    "user_ids": [],
+    "resource_ids": ["delivery_confirmation_19.pdf", "delivery_confirmation_20.pdf", "return_label_4821.pdf", "return_label_4876.pdf", "invoice_NS-10493.pdf", "parcel_damage_7713.jpg", "customer_export_2026-02-10.zip", "customer_export_2026-02-12.zip"]
+  },
+  "evidence_60": {
+    "names": ["Soo-jin Park"],
+    "emails": ["sj.park@naver.com"],
+    "phones": ["+82 10-5837-9451"],
+    "user_ids": [],
+    "resource_ids": ["marketing_001"]
+  }
+}

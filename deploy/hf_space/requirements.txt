@@ -1,0 +1,4 @@
+# Case-viewer Space only (the audit pipeline is NOT run here; it reads cases.json exported by scripts/export_ui_data.py).
+# Kept separate from the root requirements.txt: gradio conflicts with the pipeline's pinned pillow==13.0.0.
+gradio==6.30.0
+huggingface_hub==2.3.0

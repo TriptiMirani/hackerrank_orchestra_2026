@@ -1,0 +1,110 @@
+{
+  "application": "Internal Business Console",
+  "screen_title": "User Management Dashboard",
+  "subtitle": "User Details for John Doe",
+  "summary_cards": [
+    {
+      "key": "Account Status",
+      "value": "Active"
+    },
+    {
+      "key": "Last Login",
+      "value": "2024-03-15 10:30:00"
+    }
+  ],
+  "captured_or_executed_at": "2024-03-15 11:00:00",
+  "search_query": "John Doe",
+  "records": [
+    {
+      "resource_id": "USR1001",
+      "emails": [
+        "john.doe@example.com"
+      ],
+      "phones": [
+        "(555) 123-4567"
+      ],
+      "names": [
+        "John Doe"
+      ],
+      "user_ids": [
+        "1001"
+      ],
+      "hashes": [
+        "a1b2c3d4e5f6"
+      ],
+      "status": "Active",
+      "fields": [
+        {
+          "key": "Department",
+          "value": "Sales"
+        },
+        {
+          "key": "Manager",
+          "value": "Jane Smith"
+        },
+        {
+          "key": "Hire Date",
+          "value": "2020-01-15"
+        }
+      ]
+    }
+  ],
+  "detail_panel_resource_id": "USR1001",
+  "detail_panel_fields": [
+    {
+      "key": "Full Name",
+      "value": "John Doe"
+    },
+    {
+      "key": "Employee ID",
+      "value": "1001"
+    },
+    {
+      "key": "Email Address",
+      "value": "john.doe@example.com"
+    },
+    {
+      "key": "Phone Number",
+      "value": "(555) 123-4567"
+    },
+    {
+      "key": "Job Title",
+      "value": "Sales Representative"
+    },
+    {
+      "key": "Department",
+      "value": "Sales"
+    },
+    {
+      "key": "Manager",
+      "value": "Jane Smith"
+    },
+    {
+      "key": "Hire Date",
+      "value": "2020-01-15"
+    },
+    {
+      "key": "Account Status",
+      "value": "Active"
+    },
+    {
+      "key": "Last Login",
+      "value": "2024-03-15 10:30:00"
+    }
+  ],
+  "activity": [
+    {
+      "time": "2024-03-15 10:30:00",
+      "text": "Logged in successfully from IP 203.0.113.45"
+    },
+    {
+      "time": "2024-03-14 15:00:00",
+      "text": "Accessed payroll portal"
+    },
+    {
+      "time": "2024-03-10 09:00:00",
+      "text": "Updated contact information"
+    }
+  ],
+  "instructions_in_image": []
+}

@@ -1,0 +1,3 @@
+audit_id,user_id,event_time,field_name,old_value,new_value
+audit_c3_1,user_9003,2026-05-01T08:00:00Z,email,mei.c@example.org,mei.chen.new@example.org
+audit_c3_2,user_9003,2026-05-01T08:00:00Z,email_hash,410fceb15b6b3e04b5fbd47bf1cd2f9e025374cad6674e057ec8bca79c777d58,f48d5cd46915004d47befb17a8f488a6741896ebbdecdb753b27ab73efe2ab3a

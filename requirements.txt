@@ -1,0 +1,14 @@
+# Pinned with == (hard rule 3). Edit here first, then: python -m pip install -r requirements.txt
+pydantic==2.14.1
+pydantic-settings==2.16.1
+python-dotenv==1.2.4
+pandas==3.1.0
+ollama==0.6.3
+pymupdf==2.0
+pillow==13.0.0
+# Deterministic OCR for screenshots (gemma4 vision is broken in this install; see PROJECT_STATE.md)
+rapidocr-onnxruntime==1.4.4
+onnxruntime==1.31.0
+opencv-python==5.0.0.93
+numpy==2.5.4
+pytest==9.1.1

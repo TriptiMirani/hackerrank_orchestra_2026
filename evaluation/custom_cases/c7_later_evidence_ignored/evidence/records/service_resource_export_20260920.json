@@ -1,0 +1,20 @@
+{
+  "exported_at": "2026-09-20T12:00:00Z",
+  "region": "global",
+  "source": "records_assurance_gateway",
+  "service_exports": {
+    "search_service": {
+      "index_queries": [
+        {
+          "observed_at": "2026-09-08T09:00:00Z",
+          "query": "ana.r@example.org",
+          "resource_id": "search_9007",
+          "hits": {
+            "total": 0,
+            "documents": []
+          }
+        }
+      ]
+    }
+  }
+}

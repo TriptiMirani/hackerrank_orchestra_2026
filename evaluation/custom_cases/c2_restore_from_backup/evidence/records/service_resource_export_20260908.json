@@ -1,0 +1,40 @@
+{
+  "exported_at": "2026-09-08T12:00:00Z",
+  "region": "global",
+  "source": "records_assurance_gateway",
+  "service_exports": {
+    "account_service": {
+      "profile_lookups": [
+        {
+          "observed_at": "2026-09-08T09:00:00Z",
+          "profile": null,
+          "resource_id": "account_9002",
+          "status_code": 404
+        }
+      ]
+    },
+    "backup_service": {
+      "restore_entries": [
+        {
+          "observed_at": "2026-09-08T09:10:00Z",
+          "resource_id": "backup_9002",
+          "archive_key": "archive/customer-data/backup_9002.tar.zst",
+          "restore_allowed": true,
+          "customer_email": "tomas.lind@example.org",
+          "customer_reference": null
+        }
+      ]
+    },
+    "security_service": {
+      "audit_records": [
+        {
+          "observed_at": "2026-09-08T09:20:00Z",
+          "resource_id": "audit_record_9002",
+          "subject_reference": "user_9002",
+          "event_code": "ACCOUNT_DELETION_RECORDED",
+          "retention_until": "2033-12-31T23:59:59Z"
+        }
+      ]
+    }
+  }
+}

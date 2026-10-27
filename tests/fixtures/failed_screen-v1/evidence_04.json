@@ -1,0 +1,172 @@
+{
+  "application": "Internal Business Console",
+  "screen_title": "User Management Dashboard",
+  "subtitle": "User Details",
+  "summary_cards": [
+    {
+      "key": "Total Users",
+      "value": "1,250"
+    },
+    {
+      "key": "Active Users",
+      "value": "1,100"
+    },
+    {
+      "key": "Suspended Users",
+      "value": "150"
+    }
+  ],
+  "captured_or_executed_at": "2024-05-15 10:30:00",
+  "search_query": "",
+  "records": [
+    {
+      "resource_id": "USR-9012",
+      "emails": [
+        "john.doe@example.com"
+      ],
+      "phones": [
+        "(555) 123-4567"
+      ],
+      "names": [
+        "John Doe"
+      ],
+      "user_ids": [
+        "JD1001"
+      ],
+      "hashes": [
+        "*"
+      ],
+      "status": "Active",
+      "fields": [
+        {
+          "key": "Last Login",
+          "value": "2024-05-14 09:15:22"
+        },
+        {
+          "key": "Department",
+          "value": "Sales"
+        },
+        {
+          "key": "Role",
+          "value": "Sales Representative"
+        }
+      ]
+    },
+    {
+      "resource_id": "USR-9013",
+      "emails": [
+        "jane.smith@example.com"
+      ],
+      "phones": [
+        "(555) 987-6543"
+      ],
+      "names": [
+        "Jane Smith"
+      ],
+      "user_ids": [
+        "JS2002"
+      ],
+      "hashes": [
+        "*"
+      ],
+      "status": "Inactive",
+      "fields": [
+        {
+          "key": "Last Login",
+          "value": "2023-11-01 14:00:00"
+        },
+        {
+          "key": "Department",
+          "value": "Marketing"
+        },
+        {
+          "key": "Role",
+          "value": "Marketing Manager"
+        }
+      ]
+    },
+    {
+      "resource_id": "USR-9014",
+      "emails": [
+        "peter.jones@example.com"
+      ],
+      "phones": [
+        "(555) 222-3333"
+      ],
+      "names": [
+        "Peter Jones"
+      ],
+      "user_ids": [
+        "PJ3003"
+      ],
+      "hashes": [
+        "*"
+      ],
+      "status": "Suspended",
+      "fields": [
+        {
+          "key": "Last Login",
+          "value": "2024-01-20 11:30:00"
+        },
+        {
+          "key": "Department",
+          "value": "IT"
+        },
+        {
+          "key": "Role",
+          "value": "System Administrator"
+        }
+      ]
+    }
+  ],
+  "detail_panel_resource_id": "USR-9012",
+  "detail_panel_fields": [
+    {
+      "key": "Full Name",
+      "value": "John Doe"
+    },
+    {
+      "key": "Email Address",
+      "value": "john.doe@example.com"
+    },
+    {
+      "key": "Phone Number",
+      "value": "(555) 123-4567"
+    },
+    {
+      "key": "User ID",
+      "value": "JD1001"
+    },
+    {
+      "key": "Account Status",
+      "value": "Active"
+    },
+    {
+      "key": "Date Created",
+      "value": "2022-01-15"
+    },
+    {
+      "key": "Last Login",
+      "value": "2024-05-14 09:15:22"
+    },
+    {
+      "key": "Department",
+      "value": "Sales"
+    },
+    {
+      "key": "Role",
+      "value": "Sales Representative"
+    }
+  ],
+  "activity": [
+    {
+      "time": "2024-05-15 10:25:00",
+      "text": "Accessed user profile for John Doe."
+    },
+    {
+      "time": "2024-05-15 10:26:10",
+      "text": "Updated role for John Doe from 'Junior Sales' to 'Sales Representative'."
+    }
+  ],
+  "instructions_in_image": []
+}

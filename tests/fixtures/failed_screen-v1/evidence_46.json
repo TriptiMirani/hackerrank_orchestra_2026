@@ -1,0 +1,174 @@
+{
+  "application": "Internal Business Console",
+  "screen_title": "User Management Dashboard",
+  "subtitle": "User Details",
+  "summary_cards": [
+    {
+      "key": "Total Users",
+      "value": "1,250"
+    },
+    {
+      "key": "Active Users",
+      "value": "1,100"
+    },
+    {
+      "key": "Suspended Users",
+      "value": "150"
+    }
+  ],
+  "captured_or_executed_at": "2024-05-15 10:30:00",
+  "search_query": "",
+  "records": [
+    {
+      "resource_id": "USR-9012",
+      "emails": [
+        "john.doe@example.com"
+      ],
+      "phones": [
+        "(555) 123-4567"
+      ],
+      "names": [
+        "John Doe"
+      ],
+      "user_ids": [
+        "JD1001"
+      ],
+      "hashes": [
+        "$2b$12$abcdefg1234567890abcdefg1234567890"
+      ],
+      "status": "Active",
+      "fields": [
+        {
+          "key": "Last Login",
+          "value": "2024-05-14 09:15:22"
+        },
+        {
+          "key": "Department",
+          "value": "Sales"
+        },
+        {
+          "key": "Role",
+          "value": "Sales Representative"
+        }
+      ]
+    },
+    {
+      "resource_id": "USR-3456",
+      "emails": [
+        "jane.smith@example.com"
+      ],
+      "phones": [
+        "(555) 987-6543"
+      ],
+      "names": [
+        "Jane Smith"
+      ],
+      "user_ids": [
+        "JS2002"
+      ],
+      "hashes": [
+        "$2b$12$abcdefg1234567890abcdefg1234567890"
+      ],
+      "status": "Suspended",
+      "fields": [
+        {
+          "key": "Last Login",
+          "value": "2024-04-01 11:00:00"
+        },
+        {
+          "key": "Department",
+          "value": "Marketing"
+        },
+        {
+          "key": "Role",
+          "value": "Marketing Manager"
+        }
+      ]
+    },
+    {
+      "resource_id": "USR-7890",
+      "emails": [
+        "peter.jones@example.com"
+      ],
+      "phones": [],
+      "names": [
+        "Peter Jones"
+      ],
+      "user_ids": [
+        "PJ3003"
+      ],
+      "hashes": [
+        "$2b$12$abcdefg1234567890abcdefg1234567890"
+      ],
+      "status": "Active",
+      "fields": [
+        {
+          "key": "Last Login",
+          "value": "2024-05-15 10:25:00"
+        },
+        {
+          "key": "Department",
+          "value": "Engineering"
+        },
+        {
+          "key": "Role",
+          "value": "Software Engineer"
+        }
+      ]
+    }
+  ],
+  "detail_panel_resource_id": "USR-9012",
+  "detail_panel_fields": [
+    {
+      "key": "Full Name",
+      "value": "John Doe"
+    },
+    {
+      "key": "Email Address",
+      "value": "john.doe@example.com"
+    },
+    {
+      "key": "Phone Number",
+      "value": "(555) 123-4567"
+    },
+    {
+      "key": "User ID",
+      "value": "JD1001"
+    },
+    {
+      "key": "Account Status",
+      "value": "Active"
+    },
+    {
+      "key": "Department",
+      "value": "Sales"
+    },
+    {
+      "key": "Job Title",
+      "value": "Sales Representative"
+    },
+    {
+      "key": "Date Joined",
+      "value": "2022-08-10"
+    },
+    {
+      "key": "Last Password Change",
+      "value": "2024-05-01"
+    }
+  ],
+  "activity": [
+    {
+      "time": "2024-05-15 10:25:00",
+      "text": "Logged in successfully from IP 192.168.1.1"
+    },
+    {
+      "time": "2024-05-14 09:15:22",
+      "text": "Accessed CRM module"
+    },
+    {
+      "time": "2024-05-10 14:00:00",
+      "text": "Updated contact information for Acme Corp"
+    }
+  ],
+  "instructions_in_image": []
+}

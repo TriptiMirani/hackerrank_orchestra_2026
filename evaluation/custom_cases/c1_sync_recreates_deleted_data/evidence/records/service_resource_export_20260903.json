@@ -1,0 +1,30 @@
+{
+  "exported_at": "2026-09-03T12:00:00Z",
+  "region": "global",
+  "source": "records_assurance_gateway",
+  "service_exports": {
+    "account_service": {
+      "profile_lookups": [
+        {
+          "observed_at": "2026-09-03T10:00:00Z",
+          "profile": null,
+          "resource_id": "account_9001",
+          "status_code": 404
+        }
+      ]
+    },
+    "search_service": {
+      "index_queries": [
+        {
+          "observed_at": "2026-09-03T10:05:00Z",
+          "query": "rhea.k@example.org",
+          "resource_id": "search_9001",
+          "hits": {
+            "total": 0,
+            "documents": []
+          }
+        }
+      ]
+    }
+  }
+}

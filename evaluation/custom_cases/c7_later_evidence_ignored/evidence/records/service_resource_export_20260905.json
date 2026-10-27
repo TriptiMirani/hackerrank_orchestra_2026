@@ -1,0 +1,35 @@
+{
+  "exported_at": "2026-09-05T12:00:00Z",
+  "region": "global",
+  "source": "records_assurance_gateway",
+  "service_exports": {
+    "account_service": {
+      "profile_lookups": [
+        {
+          "observed_at": "2026-09-05T09:00:00Z",
+          "profile": null,
+          "resource_id": "account_9007",
+          "status_code": 404
+        }
+      ]
+    },
+    "search_service": {
+      "index_queries": [
+        {
+          "observed_at": "2026-09-05T09:05:00Z",
+          "query": "ana.r@example.org",
+          "resource_id": "search_9007",
+          "hits": {
+            "total": 1,
+            "documents": [
+              {
+                "resource_id": "search_9007",
+                "email": "ana.r@example.org"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

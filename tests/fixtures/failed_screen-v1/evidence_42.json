@@ -1,0 +1,127 @@
+{
+  "application": "Internal Business Console",
+  "screen_title": "",
+  "subtitle": "",
+  "summary_cards": [
+    {
+      "key": "User Profile",
+      "value": "John Doe"
+    },
+    {
+      "key": "Account Status",
+      "value": "Active"
+    },
+    {
+      "key": "Last Login",
+      "value": "2023-10-27 10:30:00"
+    }
+  ],
+  "captured_or_executed_at": "2023-10-27 14:00:00",
+  "search_query": "",
+  "records": [
+    {
+      "resource_id": "TRX1001",
+      "emails": [
+        "john.doe@example.com"
+      ],
+      "phones": [
+        "555-123-4567"
+      ],
+      "names": [
+        "John Doe"
+      ],
+      "user_ids": [
+        "JD123"
+      ],
+      "hashes": [
+        "a1b2c3d4e5f6"
+      ],
+      "status": "Completed",
+      "fields": [
+        {
+          "key": "Transaction Date",
+          "value": "2023-10-25"
+        },
+        {
+          "key": "Amount",
+          "value": "$1,200.00"
+        },
+        {
+          "key": "Description",
+          "value": "Software License Fee"
+        }
+      ]
+    },
+    {
+      "resource_id": "TRX1002",
+      "emails": [
+        "jane.smith@example.com"
+      ],
+      "phones": [
+        "555-987-6543"
+      ],
+      "names": [
+        "Jane Smith"
+      ],
+      "user_ids": [
+        "JS456"
+      ],
+      "hashes": [
+        "b2c3d4e5f6a1"
+      ],
+      "status": "Pending",
+      "fields": [
+        {
+          "key": "Transaction Date",
+          "value": "2023-10-26"
+        },
+        {
+          "key": "Amount",
+          "value": "$50.50"
+        },
+        {
+          "key": "Description",
+          "value": "Consulting Service"
+        }
+      ]
+    }
+  ],
+  "detail_panel_resource_id": "TRX1001",
+  "detail_panel_fields": [
+    {
+      "key": "Transaction Date",
+      "value": "2023-10-25"
+    },
+    {
+      "key": "Amount",
+      "value": "$1,200.00"
+    },
+    {
+      "key": "Description",
+      "value": "Software License Fee"
+    },
+    {
+      "key": "Payment Method",
+      "value": "Credit Card"
+    },
+    {
+      "key": "Reference Number",
+      "value": "REF98765"
+    }
+  ],
+  "activity": [
+    {
+      "time": "10:30:00",
+      "text": "Logged in successfully from IP 192.168.1.1"
+    },
+    {
+      "time": "10:35:15",
+      "text": "Viewed record TRX1001"
+    },
+    {
+      "time": "14:00:00",
+      "text": "Session ended"
+    }
+  ],
+  "instructions_in_image": []
+}

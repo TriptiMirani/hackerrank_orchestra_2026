@@ -1,0 +1,38 @@
+# --- Secrets: never commit (hard rule 4). .env.example is the committed template.
+.env
+.env.*
+!.env.example
+
+# --- Environments and tool caches
+.venv/
+.venv-ui/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- LLM cache: only the orphaned Phase 0 vision results (screen-v1), unused by the pipeline. Their copies are kept
+# in tests/fixtures/failed_screen-v1/. data/ocr_cache/, data/llm_ledger.jsonl and data/run_log.jsonl ARE committed:
+# they make output.csv reproducible offline and back every number in the reports.
+data/llm_cache/
+data/**/*.tmp
+
+# --- Build / scratch artifacts
+code.zip
+*.zip
+evaluation/output_repeat.csv
+
+agent-trace/*
+
+MY_CLAUDE.md
+log.txt
+PROJECT_STATE.md
+AGENTS.md

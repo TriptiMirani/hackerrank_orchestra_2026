@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northstar Deletion Audit</title>
+<style>
+  :root { --bg:#f7f7f8; --fg:#1d1f23; --muted:#5f6670; --card:#fff; --line:#e3e5e8; --accent:#3b4cca;
+          --ok:#1f7a3f; --bad:#b3261e; --warn:#8a5a00; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#141518; --fg:#e8e9eb; --muted:#9aa0a8; --card:#1d1f23; --line:#30333a; --accent:#8b97ff;
+            --ok:#5cc884; --bad:#ff8a80; --warn:#f0b54a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--fg); }
+  header { padding:20px 16px 8px; max-width:1200px; margin:auto; }
+  h1 { margin:0 0 4px; font-size:22px; } h2 { font-size:18px; margin:0 0 8px; } h3 { font-size:15px; margin:18px 0 6px; }
+  .muted { color:var(--muted); }
+  main { max-width:1200px; margin:auto; padding:0 16px 40px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:12px 0; }
+  .controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  select, input { font:inherit; padding:6px 8px; border:1px solid var(--line); border-radius:6px; background:var(--card); color:var(--fg); }
+  #case { min-width:260px; max-width:100%; }
+  .tabs button { font:inherit; padding:6px 12px; border:1px solid var(--line); background:var(--card); color:var(--fg); border-radius:6px; cursor:pointer; }
+  .tabs button.on { border-color:var(--accent); color:var(--accent); font-weight:600; }
+  .scroll { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:13px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--muted); font-weight:600; white-space:nowrap; }
+  code { font:12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .pill { display:inline-block; padding:1px 8px; border-radius:999px; font-size:12px; font-weight:600; border:1px solid currentColor; }
+  .COMPLETE, .ok { color:var(--ok); } .INCOMPLETE, .bad { color:var(--bad); } .NOT_APPLICABLE, .warn { color:var(--warn); }
+  blockquote { margin:8px 0; padding:6px 12px; border-left:3px solid var(--line); color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Northstar deletion-audit case viewer</h1>
+  <div class="muted">Every answer comes from the deterministic audit that produced <code>output.csv</code>. Each finding cites the evidence file that proves it. Read-only and static: no model, dataset or secret runs here. All data is synthetic.</div>
+</header>
+<main>
+  <div class="tabs"><button id="t-case" class="on">Case</button> <button id="t-scores">Scores</button></div>
+  <section id="v-case">
+    <div class="card controls">
+      <label>Split <select id="split"><option>all</option><option>eval</option><option>sample</option></select></label>
+      <label>Status <select id="status"><option>all</option><option>COMPLETE</option><option>INCOMPLETE</option><option>NOT_APPLICABLE</option></select></label>
+      <label>Case <select id="case"></select></label>
+      <span id="count" class="muted"></span>
+    </div>
+    <div id="detail"></div>
+  </section>
+  <section id="v-scores" hidden><div class="card" id="scores"></div></section>
+</main>
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pct = x => (100 * x).toFixed(1) + "%";
+let DATA = null;
+
+function table(headers, rows) {
+  if (!rows.length) return '<p class="muted">none</p>';
+  return '<div class="scroll"><table><thead><tr>' + headers.map(h => `<th>${esc(h)}</th>`).join("") +
+    '</tr></thead><tbody>' + rows.map(r => '<tr>' + r.map(c => `<td>${c}</td>`).join("") + '</tr>').join("") +
+    '</tbody></table></div>';
+}
+
+function stepRows(steps) {
+  return steps.map(s => [s.step_no, esc(s.phase), esc(s.system_id), `<code>${esc(s.resource_id)}</code>`,
+    esc(s.operation), esc(s.state), s.evidence_id ? `<code>${esc(s.evidence_id)}</code>` : '<span class="muted">—</span>']);
+}
+
+function render(id) {
+  const c = DATA.cases.find(x => x.case_id === id);
+  if (!c) { document.getElementById("detail").innerHTML = ""; return; }
+  const r = c.request, i = c.identity;
+  let h = `<div class="card"><h2>${esc(c.case_id)} → <span class="pill ${c.status}">${esc(c.status)}</span></h2>
+    <div>Request email <code>${esc(r.email)}</code>; requested ${esc(r.requested_at.slice(0,16))}. The workflow claimed
+    <b>${esc(r.reported_status)}</b> at ${esc(r.reported_at.slice(0,16))}. Audited <b>as of ${esc(r.audit_at.slice(0,16))}</b>.</div>
+    <div class="muted">Intent: ${esc(c.intent)} (${esc(c.intent_reason)})</div><blockquote>${esc(r.text)}</blockquote></div>`;
+  h += '<div class="card"><h3>Resolved identifiers (current + historical, as of audit_at)</h3>';
+  if (!i) h += '<p class="muted">Not a deletion request: no identity resolved, no steps (<code>[]</code>).</p>';
+  else h += `<p><b>${esc(i.user_id)}</b> (matched via ${esc(i.matched_via.replace("_"," "))})</p><ul>
+    <li>emails: ${i.emails.map(e => `<code>${esc(e)}</code>`).join(", ")}</li><li>phones: ${esc(i.phones.join(", "))}</li>
+    <li>names: ${esc(i.names.join(", "))}</li><li>email hashes (sha256 of email): ${i.email_hashes.map(x => `<code>${esc(x)}</code>`).join(", ")}</li></ul>`;
+  if (c.unresolved.length) h += `<p class="muted">Linked but with no evidence of state (not acted on): ${esc(c.unresolved.join(", "))}</p>`;
+  h += '</div><div class="card"><h3>Linked resources: state at audit_at and policy verdict</h3>' +
+    table(["resource","system","category","rule","verdict","state","as of","evidence","evidence file","linked by"],
+      c.items.map(x => [`<code>${esc(x.resource_id)}</code>`, esc(x.system_id), esc(x.category), esc(x.treatment),
+        `<span class="${["REMAINING","EXPOSED","ACTIVE_FLOW","RESTORE_RISK"].includes(x.verdict) ? "bad" : "ok"}">${esc(x.verdict)}</span>`,
+        esc(x.state), esc(x.as_of.slice(0,16)), `<code>${esc(x.evidence_id)}</code>`, `<code>${esc(x.evidence_file)}</code>`,
+        esc(x.link + ": " + x.link_detail.slice(0,70))])) + '</div>';
+  h += '<div class="card"><h3>steps_json (as submitted)</h3>' +
+    table(["#","phase","system","resource","operation","state","evidence"], stepRows(c.steps)) + '</div>';
+  if (c.expected) {
+    const same = c.expected.status === c.status && JSON.stringify(c.expected.steps) === JSON.stringify(c.steps);
+    h += `<div class="card"><h3>Sample answer key: <span class="${same ? "ok" : "warn"}">${same ? "identical" : "differs"}</span></h3>
+      <p>expected status <b>${esc(c.expected.status)}</b></p>` +
+      table(["#","phase","system","resource","operation","state","evidence"], stepRows(c.expected.steps)) + '</div>';
+  }
+  document.getElementById("detail").innerHTML = h;
+}
+
+function refilter() {
+  const sp = document.getElementById("split").value, st = document.getElementById("status").value;
+  const sel = document.getElementById("case");
+  const list = DATA.cases.filter(c => (sp === "all" || c.split === sp) && (st === "all" || c.status === st));
+  sel.innerHTML = list.map(c => `<option value="${esc(c.case_id)}">${esc(c.case_id)} · ${esc(c.status)} · ${esc(c.split)}</option>`).join("");
+  document.getElementById("count").textContent = `${list.length} cases`;
+  render(list.length ? list[0].case_id : null);
+}
+
+function scores() {
+  const S = DATA.summary, s = S.sample, f = S.final_run;
+  document.getElementById("scores").innerHTML = "<h2>Measured results</h2>" + table(["metric","value"], [
+    ["sample status accuracy", pct(s.status_accuracy)],
+    ["sample step precision / recall / F1", `${pct(s.step_precision)} / ${pct(s.step_recall)} / ${pct(s.step_f1)}`],
+    ["sample exact sequence / edit similarity", `${pct(s.sequence_exact)} / ${pct(s.sequence_similarity)}`],
+    ["custom cases", esc(S.custom_cases_pass.replaceAll("**","").trim())],
+    ["final run", esc(`${f.rows} rows; ${JSON.stringify(f.statuses)}; ${f.steps} steps; ${f.llm_calls} LLM calls; ${f.seconds} s`)],
+    ["output.csv sha256", `<code>${esc(f.output_sha256)}</code>`],
+  ]) + "<h3>Sample field accuracy</h3>" + table(["field","accuracy"],
+    Object.entries(S.sample_field_accuracy).map(([k, v]) => [esc(k), pct(v)]));
+}
+
+function tab(which) {
+  document.getElementById("v-case").hidden = which !== "case";
+  document.getElementById("v-scores").hidden = which !== "scores";
+  document.getElementById("t-case").classList.toggle("on", which === "case");
+  document.getElementById("t-scores").classList.toggle("on", which === "scores");
+}
+
+fetch("cases.json").then(r => r.json()).then(d => {
+  DATA = d;
+  ["split","status"].forEach(id => document.getElementById(id).addEventListener("change", refilter));
+  document.getElementById("case").addEventListener("change", e => render(e.target.value));
+  document.getElementById("t-case").onclick = () => tab("case");
+  document.getElementById("t-scores").onclick = () => tab("scores");
+  refilter(); scores();
+}).catch(e => { document.getElementById("detail").innerHTML = `<div class="card bad">Could not load cases.json: ${esc(e)}</div>`; });
+</script>
+</body>
+</html>
